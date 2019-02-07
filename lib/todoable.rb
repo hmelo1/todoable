@@ -1,6 +1,6 @@
-require "todoable/version"
+require "todoable/list"
+require "todoable/item"
 
 module Todoable
-  class Error < StandardError; end
-  # Your code goes here...
+
 end

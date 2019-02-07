@@ -1,9 +1,11 @@
-RSpec.describe Todoable do
-  it "has a version number" do
-    expect(Todoable::VERSION).not_to be nil
-  end
+require 'todoable'
 
-  it "does something useful" do
-    expect(false).to eq(true)
-  end
+RSpec.describe Todoable do
+    it "Has a List class" do
+        expect(Todoable::List.portray("Broccoli")).to eql("Gross!")
+    end
+
+    it "Has a Item class" do
+        expect(Todoable::Item.portray("Broccoli")).to eql("Gross!")
+    end
 end
