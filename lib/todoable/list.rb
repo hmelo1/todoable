@@ -1,11 +1,20 @@
 module Todoable
     class List
-        def self.portray(food)
-            if food.downcase == "broccoli"
-                "Gross!"
-            else
-                "Delicious!"
-            end
+        attr_accessor :name
+        attr_accessor :id
+
+        def initialize 
+
         end
+
+        #index
+
+        #create
+        
+        #show
+
+        #update
+
+        #delete
     end
 end
