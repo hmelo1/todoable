@@ -1,7 +1,6 @@
 module Todoable
     class List
-        attr_accessor :name
-        attr_accessor :id
+        attr_accessor :name, :list_id
 
         def initialize 
 
