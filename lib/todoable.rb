@@ -1,25 +1,49 @@
 require "todoable/list"
 require "todoable/item"
 require "net/http"
+require "rest-client"
 require "json"
+
+require 'pry'
 
 module Todoable
     BASE_ROUTE = 'http://todoable.teachable.tech/api'
-    AUTH_PATH = "/authenticate"
-    LISTS_PATH = "/lists" #[GET, POST]
-    LIST_PATH = "/lists/:list_id" #[GET, PATCH, DELETE]
-    ITEMS_PATH = "/lists/:list_id/items" #[POST]
-    ITEM_PATH = "/lists/:list_id/items/:item_id" #[DELETE]
-    FINISHED_ITEM_PATH = "/lists/:list_id/items/:item_id/finish" #[DELETE]
 
     class User
-        attr_accessor :username, :password
+        AUTH_PATH = "/authenticate"
+
+        attr_accessor :username, :password, :token
         
-        def self.new_user(username, password)
+        def self.authenticate_user(username, password)
             user = new
-            user.username = username
-            user.password = password
+            user.username = "heriberto@melo.nyc" #username
+            user.password = "todoable" #password
+            user.token = self.get_token!(client)
             user
+        end
+
+        def self.get_token!(client)
+            req = RestClient::Request.new(
+                method: :post,
+                url: BASE_ROUTE+AUTH_PATH,
+                user: client.username,
+                password: client.password,
+                headers: {
+                    content_type: :json,
+                    accept: :json
+                }
+            )
+            resp = JSON.parse(req.execute)
+            
+            resp['token']
+        end
+
+        def make_request()
+
+        end
+
+        def list_lists
+            List.new(self)
         end
     end
 end

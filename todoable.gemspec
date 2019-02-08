@@ -1,11 +1,10 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "todoable/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "todoable"
-  spec.version       = Todoable::VERSION
+  spec.version       = "1.0"
   spec.authors       = ["Eddie Melo"]
   spec.email         = ["heriberto@melo.nyc"]
 
@@ -30,6 +29,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
+  spec.add_development_dependency "rest-client", "~> 2.0"
   spec.add_development_dependency "bundler", "~> 2.0"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
