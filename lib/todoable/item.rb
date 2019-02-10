@@ -1,17 +1,25 @@
 module Todoable
     class Item
-        ITEMS_PATH = "/lists/:list_id/items" #[POST]
-        ITEM_PATH = "/lists/:list_id/items/:item_id" #[DELETE]
-        FINISHED_ITEM_PATH = "/lists/:list_id/items/:item_id/finish" #[DELETE]
-        
-        def initialize
+        ITEM_PATH = "/items/"
+        FINISH_PATH = "/finish"
 
+        attr_accessor :list_id, :user
+
+        def initialize(user, list_id)
+            @user = user
+            @list_id = list_id
         end
 
-        #create
+        def create(content)
+            user.make_request(LISTS_PATH+list_id+ITEM_PATH, :post, { item: {name: content} })
+        end
 
-        #finish
+        def finish(item_id)
+            user.make_request(LISTS_PATH+list_id+ITEM_PATH+item_id+FINISH_PATH, :put)
+        end
 
-        #delete
+        def delete(item_id)
+            user.make_request(LISTS_PATH+list_id+ITEM_PATH+item_id, :delete)
+        end
     end
 end

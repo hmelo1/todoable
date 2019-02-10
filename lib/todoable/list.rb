@@ -1,22 +1,29 @@
 module Todoable
     class List
-        LISTS_PATH = "/lists" #[GET, POST]
-        LIST_PATH = "/lists/:list_id" #[GET, PATCH, DELETE]
-        
-        attr_accessor :name, :list_id
+        attr_accessor :name, :list_id, :user
 
-        def initialize 
-
+        def initialize(user)
+            @user = user
         end
 
-        #index
+        def index
+            user.make_request(LISTS_PATH, :get)['lists']
+        end
 
-        #create
-        
-        #show
+        def create(content)
+            user.make_request(LISTS_PATH, :post, { list: {name: content} })
+        end
 
-        #update
+        def show(id)
+            user.make_request(LISTS_PATH+"/#{id}", :get)
+        end
 
-        #delete
+        def update(id, content)
+            user.make_request(LISTS_PATH+"/#{id}", :patch, {list: {name: content}} )
+        end
+
+        def delete(id)
+            user.make_request(LISTS_PATH+"/#{id}", :delete)
+        end
     end
 end

@@ -8,3 +8,29 @@ FINISHED_ITEM_PATH = "/lists/:list_id/items/:item_id/finish" [DELETE]
 
 
 
+
+curl \
+    -u heriberto@melo.nyc:todoable \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -X POST \
+    http://todoable.teachable.tech/api/authenticate
+
+{"token":"9e04c8df-738a-45b9-be92-4d9713943ec5","expires_at":"2019-02-08T19:34:20.251Z"}
+
+
+curl \
+  -H "Authorization: Token token=\"9e04c8df-738a-45b9-be92-4d9713943ec5\"" \
+  -H "Accept: application/json" \
+  -H "Content-Type: application/json" \
+  http://todoable.teachable.tech/api/lists
+
+curl \
+  -d '{"name":"test"}'\
+  -H "Authorization: Token token=\"9e04c8df-738a-45b9-be92-4d9713943ec5\"" \
+  -H "Accept: application/json" \
+  -H "Content-Type: application/json" \
+  -X POST \
+  http://todoable.teachable.tech/api/lists
+
+  
