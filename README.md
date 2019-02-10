@@ -2,13 +2,14 @@
 
 Library wrapper to use the Todoable API.
 
+Gem Link: https://rubygems.org/gems/todoable
 
 ## Pre-Requisite
 Install the gem using bundler
 
 Add to GemFile:
 ```
-gem 'todoable', git: 'https://github.com/hmelo1/todoable.git'
+gem 'todoable', '~> 1.0', git: 'https://github.com/hmelo1/todoable.git'
 ```
 Run a good ol'fashioned bundle install
 
