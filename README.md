@@ -21,6 +21,26 @@ Rspec
 Rake
 ```
 
+## Testability
+ * Tests currently work for the following methods:
+ ```ruby
+    Todoable::User.authenticate_user
+    Todoable::User.list_lists
+    Todoable::User.list_items
+    Todoable::List.index
+    Todoable::List.show
+    Todoable::List.create
+    Todoable::List.update
+    Todoable::List.delete
+ ```
+
+ *Tests DO NOT work for the following methods: 
+ ```ruby
+    Todoable::Item.create
+    Todoable::Item.finish
+    Todoable::Item.delete
+ ```
+
 ## Clases and Modules
 
 `Todoable::User` < Represents the User currently logged in.
