@@ -8,7 +8,7 @@ Gem Link: https://rubygems.org/gems/todoable
 Install the gem using bundler
 
 Add to GemFile:
-```
+```ruby
 gem 'todoable', '~> 1.0', git: 'https://github.com/hmelo1/todoable.git'
 ```
 Run a good ol'fashioned bundle install
@@ -48,57 +48,57 @@ DELETE /lists/:list_id/items/:item_id
 ```
 ## Usage and Methods
 
-~~~~~
+~~~~~ruby
 #Provide Authentication credentials
 user = Todoable::User.authenticate_user(username, password)
 ~~~~~
 
-~~~~~
+~~~~~ruby
 #Populate your lists of todo-lists
 lists = user.list_lists
 ~~~~~
 
-~~~~~
+~~~~~ruby
 #View your list index
 lists.index
 ~~~~~
 
-~~~~~
+~~~~~ruby
 #Create a new list with the name "New List"
 lists.create("New List")
 ~~~~~
 
-~~~~~
+~~~~~ruby
 #Show an individual list
 lists.show(list_id)
 ~~~~~
 
-~~~~~
+~~~~~ruby
 #Update an individual list
 lists.update(list_id)
 ~~~~~
 
-~~~~~
+~~~~~ruby
 #Delete an individual list
 lists.delete(list_id)
 ~~~~~
 
-~~~~~
+~~~~~ruby
 #Add items to an individual list
 item = list_items(list_id)
 ~~~~~
 
-~~~~~
+~~~~~ruby
 #Create an item in your chosen list.
 item.create("Say hello to the dogs!")
 ~~~~~
 
-~~~~~
+~~~~~ruby
 #Finish an item
 item.finish(item_id)
 ~~~~~
 
-~~~~~
+~~~~~ruby
 #Delete an individual item
 item.delete(item_id)
 ~~~~~
