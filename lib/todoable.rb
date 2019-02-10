@@ -3,8 +3,6 @@ require "todoable/item"
 require "rest-client"
 require "json"
 
-require 'pry'
-
 module Todoable
     BASE_ROUTE = 'http://todoable.teachable.tech/api'
     LISTS_PATH = "/lists"
