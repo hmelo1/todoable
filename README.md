@@ -2,9 +2,106 @@
 
 Library wrapper to use the Todoable API.
 
-## Usage
 
-TODO: Write usage instructions here
+## Pre-Requisite
+Install the gem using bundler
+
+Add to GemFile:
+```
+gem 'todoable', git: 'https://github.com/hmelo1/todoable.git'
+```
+Run a good ol'fashioned bundle install
+
+## Dependencies
+```
+Rest-Client
+Bundler
+Rspec
+Rake
+```
+
+## Clases and Modules
+
+`Todoable::User` < Represents the User currently logged in.
+
+`Todoable::List` < Represents the Lists of Todo Lists
+
+`Todoable::Item` < Represents the individual items going into the Todo List
+
+
+## API EndPoints
+```
+BASE -- http://todoable.teachable.tech/
+
+GET /lists
+POST /lists
+GET /lists/:list_id
+PATCH /lists/:list_id
+DELETE /lists/:list_id
+POST /lists/:list_id/items
+PUT /lists/:list_id/items/:item_id/finish
+DELETE /lists/:list_id/items/:item_id
+```
+## Usage and Methods
+
+~~~~~
+#Provide Authentication credentials
+user = Todoable::User.authenticate_user(username, password)
+~~~~~
+
+~~~~~
+#Populate your lists of todo-lists
+lists = user.list_lists
+~~~~~
+
+~~~~~
+#View your list index
+lists.index
+~~~~~
+
+~~~~~
+#Create a new list with the name "New List"
+lists.create("New List")
+~~~~~
+
+~~~~~
+#Show an individual list
+lists.show(list_id)
+~~~~~
+
+~~~~~
+#Update an individual list
+lists.update(list_id)
+~~~~~
+
+~~~~~
+#Delete an individual list
+lists.delete(list_id)
+~~~~~
+
+~~~~~
+#Add items to an individual list
+item = list_items(list_id)
+~~~~~
+
+~~~~~
+#Create an item in your chosen list.
+item.create("Say hello to the dogs!")
+~~~~~
+
+~~~~~
+#Finish an item
+item.finish(item_id)
+~~~~~
+
+~~~~~
+#Delete an individual item
+item.delete(item_id)
+~~~~~
+
+
+
+
 
 ## Contributing
 
