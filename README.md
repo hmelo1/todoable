@@ -28,11 +28,14 @@ Rake
 
 `Todoable::Item` < Represents the individual items going into the Todo List
 
+## Adjustments needed
+* Currently there are no tests running for the items class. Was unable to figure out how to properly test them within the alloted few hours. 
+* Readability within tests could be improved.
+* Some error capturing for errors. RestClient handles some, but more error capturing is needed.
 
 ## API EndPoints
+The base URL for all requests is http://todoable.teachable.tech/api
 ```
-BASE -- http://todoable.teachable.tech/
-
 GET /lists
 POST /lists
 GET /lists/:list_id

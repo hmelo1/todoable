@@ -17,7 +17,6 @@ module Todoable
             user.username = username
             user.password = password
             user.token = self.get_token!(user)
-            binding.pry
             user
         end
 
