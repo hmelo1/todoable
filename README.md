@@ -4,7 +4,7 @@ Library wrapper to use the Todoable API.
 
 Gem Link: https://rubygems.org/gems/todoable
 
-## Pre-Requisite
+# Pre-Requisite
 Install the gem using bundler
 
 Add to GemFile:
@@ -13,7 +13,7 @@ gem 'todoable', '~> 1.0', git: 'https://github.com/hmelo1/todoable.git'
 ```
 Run a good ol'fashioned bundle install
 
-## Dependencies
+# Dependencies
 ```
 Rest-Client
 Bundler
@@ -21,7 +21,7 @@ Rspec
 Rake
 ```
 
-## Testability
+# Testability
  * Tests currently work for the following methods:
  ```ruby
     Todoable::User.authenticate_user
@@ -41,7 +41,7 @@ Rake
     Todoable::Item.delete
  ```
 
-## Clases and Modules
+# Clases and Modules
 
 `Todoable::User` < Represents the User currently logged in.
 
@@ -49,12 +49,12 @@ Rake
 
 `Todoable::Item` < Represents the individual items going into the Todo List
 
-## Adjustments needed
+# Adjustments needed
 * Currently there are no tests running for the items class. Was unable to figure out how to properly test them within the alloted few hours. 
 * Readability within tests could be improved.
 * Some error capturing for errors. RestClient handles some, but more error capturing is needed.
 
-## API EndPoints
+# API EndPoints
 The base URL for all requests is http://todoable.teachable.tech/api
 ```
 GET /lists
@@ -66,8 +66,9 @@ POST /lists/:list_id/items
 PUT /lists/:list_id/items/:item_id/finish
 DELETE /lists/:list_id/items/:item_id
 ```
-## Usage and Methods
+# Usage and Methods
 
+## Authentication
 ~~~~~ruby
 #Provide Authentication credentials
 user = Todoable::User.authenticate_user(username, password)
@@ -78,26 +79,31 @@ user = Todoable::User.authenticate_user(username, password)
 lists = user.list_lists
 ~~~~~
 
+## Retrieve all lists
 ~~~~~ruby
 #View your list index
 lists.index
 ~~~~~
 
+## Create a new list
 ~~~~~ruby
 #Create a new list with the name "New List"
 lists.create("New List")
 ~~~~~
 
+## Show list given an ID
 ~~~~~ruby
 #Show an individual list
 lists.show(list_id)
 ~~~~~
 
+## Update a list
 ~~~~~ruby
 #Update an individual list
 lists.update(list_id)
 ~~~~~
 
+## Delete a list
 ~~~~~ruby
 #Delete an individual list
 lists.delete(list_id)
@@ -108,16 +114,20 @@ lists.delete(list_id)
 item = list_items(list_id)
 ~~~~~
 
+## Create an item within a TODO List
 ~~~~~ruby
 #Create an item in your chosen list.
 item.create("Say hello to the dogs!")
 ~~~~~
 
+## Mark an item as finished.
 ~~~~~ruby
 #Finish an item
 item.finish(item_id)
 ~~~~~
 
+
+## Delete an item from your list
 ~~~~~ruby
 #Delete an individual item
 item.delete(item_id)
